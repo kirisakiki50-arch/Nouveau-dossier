@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Cadeau Pour Toi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-accueil" class="page active">
+        <div class="container">
+            <h1>J ai une surprise pour toi tu veux voir c est quoi?</h1>
+            <div class="gift-image">😍</div>
+            <div class="button-container">
+                <button class="btn-no" onclick="if(confirm('Es-tu sûr ?')) goToPage('page-non')">Non</button>
+                <button class="btn-yes" onclick="goToPage('page-oui')">Oui</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-non" class="page">
+        <div class="container">
+            <h1>ta pas honte... :(</h1>
+            <div class="sad-face">😠</div>
+            <p>Je te permets pas...</p>
+            <button onclick="goToPage('page-accueil')">retour madame</button>
+        </div>
+    </div>
+
+    <div id="page-oui" class="page">
+        <div class="container">
+            <h1>🎉 hehehe ! Tu as dit Oui ! 🎉</h1>
+            <div class="gift-image">🤭</div>
+            <p>Et y a une surprise cachée !!!</p>
+            <p><strong>Trouve le code secret pour déverrouiller ton cadeau !</strong></p>
+            
+            <input 
+                type="password" 
+                class="code-input" 
+                id="codeInput" 
+                placeholder="????"
+                onkeypress="if(event.key === 'Enter') checkCode()"
+            >
+            <button onclick="checkCode()">Vérifier</button>
+            <button class="back-btn" onclick="goToPage('page-accueil')">Retour</button>
+            
+            <div class="message" id="message"></div>
+            <div class="hint">Indice: Réfléchis à quelque chose d'important pour moi... 🤔</div>
+        </div>
+    </div>
+
+    <div id="page-lettre" class="page">
+        <div class="container-lettre">
+            <div class="tulipes-background"></div>
+            <div class="photo-area">
+                <image class="photo-placeholder" src="imeneph.jpeg" >
+            </div>
+
+            <div class="letter-wrapper">
+                <div class="letter" id="letter" onclick="toggleLetter()">
+                    <div class="letter-front">
+                        <div class="letter-icon">💌</div>
+                        <p>Clique pour ouvrir</p>
+                    </div>
+                    <div class="letter-inside">
+                        <div class="letter-close" onclick="toggleLetter()">✕</div>
+                        <h2>Pour toi... ✨</h2>
+                        <div class="letter-content">
+                            <p>Mon amour,
+
+Je sais que ces derniers temps la vie est lourde pour toi, et j’aimerais pouvoir porter une partie de cette douleur à ta place. Mais si je ne peux pas enlever tout ce qui te fait souffrir, je peux au moins te promettre une chose : tu ne seras jamais seule. Tant que je serai en vie, tu pourras toujours compter sur moi. Dans les jours heureux comme dans les moments où tout semble s’effondrer, je serai là. Toujours.
+
+Tu ne peux pas perdre espoir, parce que tu es toi-même l’espoir dans la vie de certaines personnes. Tu représentes tellement plus que ce que tu crois. Tu représentes l’amour, la douceur, la lumière. Il y a des gens qui respirent un peu mieux simplement parce que tu existes. Et moi le premier.
+
+Quand je dis “Imene”, je ne parle pas de l’image que les gens voient au premier regard. Je ne parle pas de la façade, ni de ce que tu montres au monde. Je parle de toi, de la vraie toi. Celle qui se cache derrière sa pudeur, derrière ses silences parfois. Celle qui laisse entrer les gens dans son univers, dans ses pensées, dans son intimité, dans cette beauté intérieure immense qu’on ne découvre qu’en ayant la chance de vraiment te connaître.
+
+Et quand quelqu’un découvre cette version de toi… il ne peut plus se passer de toi. Parce qu’il comprend à quel point ton âme est rare. À quel point ton cœur est pur. Tout ce qu’on veut après ça, c’est te voir heureuse. Même si pour ça il fallait tout perdre. Juste pour voir cette belle âme retrouver le goût à la vie, retrouver la paix, retrouver cette joie qui lui va si bien.
+
+Tu es intelligente d’une manière qui me fascine. Pas seulement dans ce que tu sais, mais dans ta façon de réfléchir, de comprendre les autres, de ressentir les choses profondément. Tu es cultivée, intéressante, sérieuse quand il le faut, autonome, forte sans même t’en rendre compte. Et malgré tout ça, tu gardes cette innocence, cette mignonnerie, cette douceur naturelle qui rendent ton existence tellement précieuse.
+
+Tu as ce côté “sweet” impossible à expliquer. Une présence qui apaise. Une manière d’aimer, d’écouter, de soutenir les autres sans rien attendre en retour. Franchement, tout le monde rêverait d’avoir une Imene dans sa vie. Et je ne dis pas ça pour te faire plaisir. Je le pense sincèrement, du plus profond de mon cœur.
+
+Tu mérites tellement plus d’amour que celui que tu te donnes parfois à toi-même. Tu mérites de te voir avec les yeux des gens qui t’aiment vraiment. Parce que si tu pouvais voir ne serait-ce qu’une seconde ce que je vois en toi, tu comprendrais à quel point tu es exceptionnelle.
+
+Et peu importe ce que ton esprit essaie de te faire croire parfois : tu n’es pas un poids. Tu n’es pas difficile à aimer. Tu n’es pas cassée. Tu es une personne rare, une âme magnifique qui traverse simplement une période difficile. Et même dans tes pires moments, tu restes quelqu’un d’extraordinaire.
+
+Je t’aime pour ton cœur, pour ton âme, pour tes qualités, pour tes défauts, pour ta sensibilité, pour tes rêves, pour ta manière d’exister. Je t’aime dans les moments où tu souris, mais aussi dans ceux où tu doutes. Je t’aime entièrement.
+
+Et je continuerai de t’aimer même les jours où toi, tu n’arrives plus à t’aimer.
+
+Parce que you are my person.
+Et tu le seras toujours.
+</p>
+                            <p>Et s’il y a une chose dont je suis certain dans cette vie, c’est que tu trouveras toujours les bonnes personnes. Parce qu’une âme comme la tienne ne peut pas être destinée à la solitude. Tu n’as pas à t’inquiéter pour ça. Les gens qui auront la chance de vraiment te connaître finiront toujours par comprendre la valeur immense que tu as.
+
+Tu es le genre de personne qu’on rencontre une fois dans une vie. Le genre de personne qui laisse une trace dans le cœur des autres sans même essayer. Alors oui, parfois tu peux avoir l’impression d’être incomprise, pas assez aimée, ou fatiguée de tout donner… mais crois-moi, il existe des gens capables de voir toute la beauté qu’il y a en toi. Des gens qui aimeront ton cœur pour ce qu’il est réellement, sans vouloir le changer.
+
+Et surtout, ne doute jamais du fait que tu mérites d’être aimée correctement. Tu mérites quelqu’un qui te rassure au lieu de t’angoisser, quelqu’un qui te choisit même dans les moments compliqués, quelqu’un qui prendra soin de ton cœur comme du plus précieux des trésors. Parce qu’un cœur comme le tien, ça ne se remplace pas.
+
+J’aimerais aussi te dire quelque chose d’un peu différent maintenant…
+J’ai essayé de créer quelque chose pour toi. Un petit site, quelque chose de simple mais fait avec énormément de sincérité, juste dans l’espoir de te redonner un peu le sourire, même quelques minutes. Je voulais que tu aies un endroit qui te rappelle à quel point tu es importante, aimée et précieuse.
+
+J’espère sincèrement qu’il te plaira.
+Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de la personne incroyable que tu es réellement.
+.</p>
+                        </div>
+                        <button class="btn-continue" onclick="goToPage('page-fin')">Continuer →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-fin" class="page">
+        <div class="journal-container">
+            <div class="journal-sidebar">
+                <div class="journal-header">
+                    <h1>💜 Mon Journal</h1>
+                    <p>pour imene 💝</p>
+                </div>
+                <nav class="journal-nav">
+                    <div class="nav-item" onclick="switchView('main-view')">🎯 Accueil</div>
+                    <div class="nav-item" onclick="switchView('journal-view')">📖 Journal</div>
+                    <div class="nav-item" onclick="switchView('souvenirs-view')">💝 Souvenirs</div>
+                </nav>
+            </div>
+
+            <div id="main-view" class="view active">
+                <div class="journal-main">
+                    <div class="journal-title">
+                    <h2>💝 Pour toi</h2>
+                    <p>Un moment spécial juste pour toi</p>
+                </div>
+
+                    <div class="quotes-carousel">
+                    <button class="carousel-btn prev" onclick="prevQuote()">❮</button>
+                    <div class="quote-carousel-item" id="current-quote">
+                        <p>✨ "Tu es incroyable, n'oublie pas ça" ✨</p>
+                    </div>
+                    <button class="carousel-btn next" onclick="nextQuote()">❯</button>
+                </div>
+
+                    <div class="journal-grid">
+                        <div class="journal-card" onclick="changeReminder()">
+                        <h3>💕 Rappel</h3>
+                        <p class="card-text" id="reminder-text">Love</p>
+                        <p class="card-hint">Clique pour changer</p>
+                    </div>
+
+                        <div class="journal-card" onclick="changeMission()">
+                        <h3>🎯 Mission</h3>
+                        <p class="card-text" id="mission-text">Clique pour découvrir ta mission</p>
+                        <p class="card-hint">Clique pour changer</p>
+                    </div>
+
+                        <div class="journal-card" onclick="changeAdvice()">
+                        <h3>💡 Quand ça ne va pas</h3>
+                        <p class="card-text" id="advice-text">Clique pour un conseil</p>
+                        <p class="card-hint">Clique pour changer</p>
+                    </div>
+
+                        <div class="journal-card">
+                        <h3>🌟 Ma Bucket List</h3>
+                        <div class="bucket-list-container">
+                            <div class="bucket-items" id="bucket-items">
+                                <div class="bucket-item">
+                                    <input type="checkbox">
+                                    <span>Voyager quelque part</span>
+                                    <button onclick="removeBucketItem(this)">✕</button>
+                                </div>
+                            </div>
+                            <div class="bucket-input">
+                                <input type="text" id="bucket-input" placeholder="Ajoute un rêve...">
+                                <button onclick="addBucketItem()">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="journal-card" onclick="changeMessage()">
+                        <h3>💬 Mon message</h3>
+                        <p class="card-text" id="message-text">Je tenais à te dire...</p>
+                        <p class="card-hint">Clique pour changer</p>
+                        <div class="card-icon">💝</div>
+                    </div>
+
+                        <div class="journal-card" onclick="changeRepresentation()">
+                        <h3>✨ Ce que tu représentes</h3>
+                        <p class="card-text" id="representation-text">Tu es important(e) pour moi</p>
+                        <p class="card-hint">Clique pour changer</p>
+                        <div class="card-icon">🌹</div>
+                    </div>
+
+                        <div class="journal-card" onclick="changeThanks()">
+                        <h3>🙏 Merci</h3>
+                        <p class="card-text" id="thanks-text">Pour tout ce que tu fais</p>
+                        <p class="card-hint">Clique pour changer</p>
+                        <div class="card-icon">💖</div>
+                    </div>
+                </div>
+
+                    <div class="journal-bottom">
+                    <div class="quote-section">
+                        <p class="quote">✨ "Merci d'exister dans ma vie" ✨</p>
+                    </div>
+
+                    <div class="photo-final" onclick="switchView('souvenirs-view')">
+                        <p>🖼️ Photo souvenir</p>
+                    </div>
+
+                    <button class="btn-yes btn-finish" onclick="goToPage('page-accueil')">Recommencer l'aventure</button>
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <div id="journal-view" class="view">
+                <div class="journal-intime-container">
+                    <div class="journal-intime-header">
+                        <h1>📔 Mon Journal Intime</h1>
+                        <p class="journal-date" id="journal-date"></p>
+                    </div>
+
+                    <div class="journal-intime-content">
+                        <textarea 
+                            id="journal-textarea" 
+                            class="journal-textarea" 
+                            placeholder="Écris tes pensées, tes sentiments, tes secrets... Juste pour toi...">
+                        </textarea>
+                        <button onclick="saveJournal()" class="btn-yes" style="width: auto; margin-top: 20px;">💾 Sauvegarder</button>
+                        <p id="journal-save-message" class="journal-save-message"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="souvenirs-view" class="view">
+                <div class="galerie-container">
+                    <div id="galerie-password-section" class="galerie-section">
+                        <div class="galerie-card">
+                            <h1>🔒 Galerie Secrète</h1>
+                            <p class="galerie-warning">⚠️ Il ya des captures d'écran de nos discussions et des vidéos de toi à l'école etc...</p>
+                            <p class="galerie-warning">Si t'es pas prête à retomber en nostalgie ne regarde pas 💔</p>
+                            
+                            <input 
+                                type="password" 
+                                class="galerie-password-input" 
+                                id="galerie-password-input" 
+                                placeholder="Mot de passe..."
+                                onkeypress="if(event.key === 'Enter') checkGaleriePassword()"
+                            >
+                            
+                            <button onclick="checkGaleriePassword()" class="btn-yes">Accès Galerie</button>
+                            
+                            <div id="galerie-message" class="galerie-message"></div>
+                        </div>
+                    </div>
+
+                    <div id="galerie-content-section" class="galerie-section" style="display: none;">
+                        <div class="photos-grid" id="photos-grid">
+                            <div class="photo-item">
+                                <img src="./imeneph.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.13.56 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.13.56 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.13.56 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.13.56.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.13.57.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.03 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.03 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.03 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.03 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.03.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04 (5).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.04.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05 (5).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.05.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06 (5).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.06.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07 (5).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.07.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08 (3).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08 (4).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08 (5).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.08.jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.09 (1).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.09 (2).jpeg" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="./WhatsApp Image 2026-05-25 at 16.14.09.jpeg" alt="Photo">
+                            </div>
+                            </div>
+                        </div>
+
+                        <div id="photo-modal" class="photo-modal" style="display: none;" onclick="closePhotoModal(event)">
+                            <div class="photo-modal-content">
+                                <button class="modal-close" onclick="closePhotoModal()">✕</button>
+                                <img id="modal-photo" src="" alt="Photo grande">
+                                <div class="hearts-animation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const reminders = ['لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا', 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا', 'وَبَشِّرِ الصَّابِرِينَ', 'وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا', 'وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', 'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ', 'إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۝ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا','أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', 'وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ', 'فَصْبِرْ صَبْرًا جَمِيلًا','مَا يُصِيبُ الْمُسْلِمَ مِنْ نَصَبٍ وَلَا وَصَبٍ وَلَا هَمٍّ وَلَا حُزْنٍ وَلَا أَذًى وَلَا غَمٍّ إِلَّا كَفَّرَ اللَّهُ بِهَا مِنْ خَطَايَاهُ','إِنَّ عِظَمَ الْجَزَاءِ مَعَ عِظَمِ الْبَلَاءِ ۝ وَإِنَّ اللَّهَ إِذَا أَحَبَّ قَوْمًا ابْتَلَاهُمْ ۝ فَمَن يَرْتَضِ بِالْبَلَاءِ رِضْوَانَ اللَّهِ فَقَدْ أَرْضَى اللَّهَ بِهِ','وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْأَمْوَالِ وَالْأَنْفُسِ وَالثَّمَرَاتِ ۝ وَبَشِّرِ الصَّابِرِينَ'];
+        let reminderIndex = 0;
+        const missions = [
+            'Fais une chose qui te rend heureuse aujourd\'hui',
+            'Appelle quelqu\'un que tu aimes',
+            'Fais un compliment à quelqu\'un',
+            'Aide quelqu\'un sans rien demander',
+            'Dire ce que tu ressens aujourd’hui',
+            'ne pas scroll toute la journee sur les réseaux sociaux',
+            'agir comme la meilleure version de soi-même',
+            '3 qualités que tu aimes chez toi et que tu veux cultiver ecris les',
+            '3 choses dont Tu es fière',
+            'Les gens ont leurs propres combats. Leur distance ne définit pas ta valeur donc ne la prends pas personnellement',
+            'pas d’auto-critique juste “j’ai fait ce que j’ai pu aujourd’hui',
+            'ne pas se punir mentalement',
+            'ne pas se parler mal',
+            'Les gens ne sont pas responsables de mon bonheur',
+        ];
+
+        const advices = [
+            '💧 Bois de l\'eau et respire',
+            '🚶 Prends une courte marche',
+            '🧘 Fais 5 minutes de méditation',
+            '📝 Écris tes sentiments',
+            '🎨 fais une activite',
+            '☎️ Appelle quelqu\'un de confiance',
+            '📚 Lis quelque chose de positif',
+            '🌙 Repose-toi',
+            'rassure-toi que tu fais de ton mieux',
+            '💖 Sois douce avec toi-même',
+            '💬 Parle à quelqu\'un'
+        ];
+
+        const messages = [
+            'Je tenais à te dire que tu es incroyable',
+            'Merci de rendre ma vie meilleure chaque jour',
+            'Tu es ma personne préférée dans ce monde',
+            'Je suis tellement fiere de qui tu es',
+            'Tu fais briller ma vie de mille feux',
+            'Avec toi, je me sens en sécurité ',
+            'Tu es mon plus beau cadeau',
+            'Je t\'aime sans condition',
+            'Tu es plus importante que tu ne le crois',
+            'Chaque jour avec toi est une bénédiction'
+        ];
+        let messageIndex = 0;
+
+        const representations = [
+            'Tu es important(e) pour moi',
+            'Tu es mon refuge',
+            'Tu es ma source de joie',
+            'Tu es ma force',
+            'Tu es ma paix intérieure',
+            'Tu es l\'amour de ma vie',
+            'Tu es mon inspiration',
+            'Tu es mon espoir',
+            'Tu es mon port d\'attache',
+            'Tu es ma raison de sourire'
+        ];
+        let representationIndex = 0;
+
+        const thanks = [
+            'Pour tout ce que tu fais',
+            'Pour ta patience et ta douceur',
+            'Pour m\'avoir écoutée quand j\'avais besoin',
+            'Pour ton soutien inconditionnel',
+            'Pour tes câlins et tes paroles',
+            'Pour ta présence à mes côtés',
+            'Pour m\'avoir aimée même quand j\'étais difficile',
+            'Pour avoir cru en moi',
+            'Pour rendre ma vie magnifique',
+            'Pour simplement être toi'
+        ];
+        let thanksIndex = 0;
+
+        const quotes = [
+            ' "Tu es incroyable, n\'oublie pas ça" ',
+            ' "Tu mérites d\'être heureuse" ',
+            '"Sois fière de toi" ',
+            '"Tu es capable de grandes choses" ',
+            '“Tu ne manques de rien. Tu te reconstruis.”',
+            '“Tu n’as pas besoin d’être choisie pour avoir de la valeur.”',
+            '“Tu peux aimer les gens sans leur donner le pouvoir de te détruire.”',
+            '“Ton bonheur ne doit pas dépendre de quelqu’un qui peut partir.”',
+            '“Arrête de te chercher chez les autres ce que tu as deja chez toi.”',
+            '“Ta valeur ne change pas selon tes émotions.”',
+            '“Tu mérites ta propre douceur.”',
+            '“Ton esprit mérite du silence, pas du chaos.”',
+            '“Respire. Tu es encore là. C’est déjà une victoire.”',
+            ' "Tu es plus forte que tu ne le penses" ',
+            ' "Les plus belles choses prennent du temps" ',
+            ' "Tu es unique et spéciale" ',
+            ' "Je t\'apprécie beaucoup" '
+        ];
+
+        let quoteIndex = 0;
+        function changeReminder() {
+            reminderIndex = (reminderIndex + 1) % reminders.length;
+            document.getElementById('reminder-text').textContent = reminders[reminderIndex];
+        }
+
+        function changeMission() {
+            const randomIndex = Math.floor(Math.random() * missions.length);
+            document.getElementById('mission-text').textContent = missions[randomIndex];
+        }
+
+        function changeAdvice() {
+            const randomIndex = Math.floor(Math.random() * advices.length);
+            document.getElementById('advice-text').textContent = advices[randomIndex];
+        }
+
+        function changeMessage() {
+            messageIndex = (messageIndex + 1) % messages.length;
+            document.getElementById('message-text').textContent = messages[messageIndex];
+        }
+
+        function changeRepresentation() {
+            representationIndex = (representationIndex + 1) % representations.length;
+            document.getElementById('representation-text').textContent = representations[representationIndex];
+        }
+
+        function changeThanks() {
+            thanksIndex = (thanksIndex + 1) % thanks.length;
+            document.getElementById('thanks-text').textContent = thanks[thanksIndex];
+        }
+
+        function prevQuote() {
+            quoteIndex = (quoteIndex - 1 + quotes.length) % quotes.length;
+            document.getElementById('current-quote').innerHTML = '<p>' + quotes[quoteIndex] + '</p>';
+        }
+
+        function nextQuote() {
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            document.getElementById('current-quote').innerHTML = '<p>' + quotes[quoteIndex] + '</p>';
+        }
+
+        function addBucketItem() {
+            const input = document.getElementById('bucket-input');
+            const text = input.value.trim();
+            
+            if (text === '') {
+                alert('Écris quelque chose!');
+                return;
+            }
+
+            const bucketItems = document.getElementById('bucket-items');
+            const newItem = document.createElement('div');
+            newItem.className = 'bucket-item';
+            newItem.innerHTML = `
+                <input type="checkbox">
+                <span>${text}</span>
+                <button onclick="removeBucketItem(this)">✕</button>
+            `;
+            
+            bucketItems.appendChild(newItem);
+            input.value = '';
+        }
+
+        function removeBucketItem(btn) {
+            btn.parentElement.remove();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const bucketInput = document.getElementById('bucket-input');
+            if (bucketInput) {
+                bucketInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        addBucketItem();
+                    }
+                });
+            }
+
+            // Initialiser la date du journal
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = today.toLocaleDateString('fr-FR', options);
+            const dateElement = document.getElementById('journal-date');
+            if (dateElement) {
+                dateElement.textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+            }
+
+            // Charger le journal sauvegardé
+            const savedJournal = localStorage.getItem('myJournal');
+            const journalTextarea = document.getElementById('journal-textarea');
+            if (journalTextarea && savedJournal) {
+                journalTextarea.value = savedJournal;
+            }
+
+            // Ajouter les événements click sur les photos
+            const photos = document.querySelectorAll('.photo-item img');
+            photos.forEach(photo => {
+                photo.addEventListener('click', function() {
+                    openPhotoModal(this.src);
+                });
+            });
+        });
+
+        function goToPage(pageId) {
+            // Cacher toutes les pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Afficher la page demandée
+            document.getElementById(pageId).classList.add('active');
+            
+            // Réinitialiser l'input du code secret
+            const codeInput = document.getElementById('codeInput');
+            if (codeInput) {
+                codeInput.value = '';
+                codeInput.disabled = false;
+            }
+            
+            // Réinitialiser le message
+            const message = document.getElementById('message');
+            if (message) {
+                message.textContent = '';
+            }
+        }
+
+        function checkCode() {
+            const input = document.getElementById('codeInput').value;
+            const message = document.getElementById('message');
+            const correctCode = '210407';
+            
+            if (input === correctCode) {
+                message.textContent = '✅ Bravo ! Tu as trouvé le code secret ! 🎊';
+                message.className = 'message success';
+                document.getElementById('codeInput').disabled = true;
+                
+                // Rediriger vers la page lettre après 1 seconde
+                setTimeout(() => {
+                    goToPage('page-lettre');
+                }, 1500);
+            } else if (input === '') {
+                message.textContent = '⚠️ Veuillez entrer un code';
+                message.className = 'message error';
+            } else {
+                message.textContent = '❌ Mauvais code, réessaie !';
+                message.className = 'message error';
+                document.getElementById('codeInput').value = '';
+            }
+        }
+
+        function toggleLetter() {
+            const letter = document.getElementById('letter');
+            letter.classList.toggle('opened');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const letter = document.getElementById('letter');
+                if (letter && letter.classList.contains('opened')) {
+                    letter.classList.remove('opened');
+                }
+            }
+        });
+
+        function checkGaleriePassword() {
+            const input = document.getElementById('galerie-password-input').value;
+            const message = document.getElementById('galerie-message');
+            const correctPassword = '130107';
+
+            if (input === correctPassword) {
+                message.textContent = '✅ Accès autorisé! 💕';
+                message.className = 'galerie-message success';
+                document.getElementById('galerie-password-section').style.display = 'none';
+                document.getElementById('galerie-content-section').style.display = 'block';
+            } else if (input === '') {
+                message.textContent = '⚠️ Veuillez entrer le mot de passe';
+                message.className = 'galerie-message error';
+            } else {
+                message.textContent = '❌ Mauvais mot de passe';
+                message.className = 'galerie-message error';
+                document.getElementById('galerie-password-input').value = '';
+            }
+        }
+
+        function openPhotoModal(src) {
+            document.getElementById('photo-modal').style.display = 'flex';
+            document.getElementById('modal-photo').src = src;
+            createHearts();
+        }
+
+        function closePhotoModal(event) {
+            if (event && event.target !== document.getElementById('photo-modal')) {
+                return;
+            }
+            document.getElementById('photo-modal').style.display = 'none';
+        }
+
+        function createHearts() {
+            const container = document.querySelector('.hearts-animation');
+            container.innerHTML = '';
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        function saveJournal() {
+            const journalContent = document.getElementById('journal-textarea').value;
+            localStorage.setItem('myJournal', journalContent);
+            
+            const message = document.getElementById('journal-save-message');
+            message.textContent = '✅ Journal sauvegardé! 💕';
+            message.className = 'journal-save-message success';
+            
+            setTimeout(() => {
+                message.textContent = '';
+            }, 3000);
+        }
+
+        function switchView(viewId) {
+            // Cacher toutes les vues
+            const views = document.querySelectorAll('.view');
+            views.forEach(view => view.classList.remove('active'));
+            
+            // Afficher la vue demandée
+            document.getElementById(viewId).classList.add('active');
+
+            // Réinitialiser le mot de passe de la galerie
+            if (viewId === 'souvenirs-view') {
+                document.getElementById('galerie-password-input').value = '';
+                document.getElementById('galerie-message').textContent = '';
+                document.getElementById('galerie-password-section').style.display = 'block';
+                document.getElementById('galerie-content-section').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
