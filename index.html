@@ -120,8 +120,9 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
                 </div>
                 <nav class="journal-nav">
                     <div class="nav-item" onclick="switchView('main-view')">🎯 Accueil</div>
-                    <div class="nav-item" onclick="switchView('journal-view')">📖 Journal</div>
+                    <div class="nav-item" onclick="switchView('journal-view')">📖 ur thought</div>
                     <div class="nav-item" onclick="switchView('souvenirs-view')">💝 Souvenirs</div>
+                    <div class="nav-item" onclick="switchView('thoughts-view')">💌 My Thoughts</div>
                 </nav>
             </div>
 
@@ -224,10 +225,15 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
                         <textarea 
                             id="journal-textarea" 
                             class="journal-textarea" 
-                            placeholder="Écris tes pensées, tes sentiments, tes secrets... Juste pour toi...">
+                            placeholder="Écris tes pensées, tes sentiments, tes secrets... Juste pour toi..." 
+                            oninput="autoSaveJournal()">
                         </textarea>
-                        <button onclick="saveJournal()" class="btn-yes" style="width: auto; margin-top: 20px;">💾 Sauvegarder</button>
+                        <div class="journal-actions">
+                            <button onclick="saveJournal()" class="btn-yes">💾 Sauvegarder</button>
+                            <button onclick="copyJournal()" class="btn-yes journal-copy-btn">📋 Copier</button>
+                        </div>
                         <p id="journal-save-message" class="journal-save-message"></p>
+                        <p class="journal-note">Le contenu reste dans ton navigateur. Pour que d'autres y aient accès, partage-le ou héberge le site avec un vrai espace de stockage.</p>
                     </div>
                 </div>
             </div>
@@ -497,6 +503,103 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
         </div>
     </div>
 
+    <div id="thoughts-view" class="view">
+        <div class="thoughts-container">
+            <div id="thoughts-password-section" class="thoughts-password-section">
+                <h1>💌 My Thoughts</h1>
+                <p>Entre le code secret pour ouvrir ton espace intime.</p>
+                <input
+                    type="password"
+                    class="thoughts-password-input"
+                    id="thoughts-password-input"
+                    placeholder="Code secret..."
+                    onkeypress="if(event.key === 'Enter') checkThoughtsCode()"
+                >
+                <button class="btn-yes" onclick="checkThoughtsCode()">Entrer</button>
+                <div id="thoughts-password-message" class="thoughts-password-message"></div>
+            </div>
+
+            <div id="thoughts-content-section" class="thoughts-content-section" style="display: none;">
+                <div class="thoughts-hero">
+                    <h1>Mon Grand Journal</h1>
+                </div>
+                <div class="thoughts-paragraph" id="thoughts-textarea" contenteditable="true" data-placeholder="Écris tes pensées ici..."><strong>Cher Imène,</strong>
+
+J'ai créé cette nouvelle conversation pour écrire ce que je ressens. J'ai remarqué que t'en parler directement ne servait plus vraiment à rien, mais j'ai quand même besoin de sortir tout ça. Écrire ici m'aide plus que de laisser ces mots dormir dans mes notes. Au moins, ici, je me dis qu'il y a une chance que tu les lises un jour, alors j'ai moins peur de me laisser aller.
+
+Je t'aime et tu me manques. C'est un titre cliché, mais c'est pourtant la vérité.
+
+À chacune de nos interactions, j'ai l'impression de te déranger, d'être devenue quelqu'un dont la présence importe peu. Une des choses qui me le fait comprendre, c'est que je ne te raconte plus ma vie comme avant. Et ça ne semble pas te manquer. Nous ne te manquons pas.
+
+Pourtant, moi, ça me manque. Ça me manque de me confier à toi, d'avoir cette sensation d'être une enfant qui se sent en sécurité parce qu'elle sait que tu trouveras toujours les mots pour l'apaiser.
+
+L'Imène avec qui je pouvais être vulnérable me manque terriblement. Elle représentait tellement pour moi. Cette version de moi capable de s'ouvrir, je ne la connaissais pas avant toi. Elle est née grâce à toi.
+
+Et même ta propre vulnérabilité me manque. Celle dont je suis tombée amoureuse. Ton cœur tendre. Le fait que tu pleures facilement, que tu sois douce, que tu saches parler de ce que tu ressens. Le fait que tu veuilles partager tout ça avec moi. Le fait que tu m'aimes.
+
+Parce qu'au fond, c'est ça qui me fait mal. J'ai l'impression que tu ne m'aimes plus.
+
+Avant, quand j'allais mal, tu le remarquais. Tu restais avec moi jusqu'à ce que ça passe. Aujourd'hui, quand j'ai peur de t'avoir blessée ou vexée, j'ai juste droit à un « t'inquiète, c'est pas ça » puis la conversation s'arrête là.
+
+Tu n'es plus investie dans cette relation comme avant, et ça me brise le cœur.
+
+Pendant que toi tu parles souvent de mariage, de ton envie de construire quelque chose avec quelqu'un d'autre, moi je suis restée bloquée à t'aimer toi. Au point où l'idée même d'aimer quelqu'un d'autre m'effraie.
+
+Et oui, parfois je suis jalouse.
+
+Pas parce que je veux te posséder. Mais parce que j'étais là quand tu pensais que personne ne pourrait t'aimer. J'étais là dans tes pires moments, dans tes cauchemars, dans tes peurs, quand tu avais besoin d'une épaule pour pleurer. J'étais là depuis le début.
+
+Alors voir à quel point il a été facile de sortir de ton cœur me pousse à douter de moi, de ma valeur et de la place que j'ai réellement eue dans ta vie.
+
+Je n'arrive pas à te voir comme tu me vois aujourd'hui, parce que pour moi tu représentes tellement plus que ça.
+
+Ce qui me fait le plus mal, c'est d'avoir l'impression que tout l'amour que j'ai donné est devenu quelque chose d'acquis. Comme si ma présence était devenue une évidence. Comme si le fait que je sois restée malgré mes blessures n'avait plus aucune valeur.
+
+J'ai toujours pensé qu'un jour ça finirait par compter.
+
+Mais aujourd'hui, j'ai parfois l'impression que tu ne me considères même plus comme quelqu'un qui a été là pour toi.
+
+Et je trouve ça profondément triste.
+
+Parce que je n'arrive pas à accepter tout ça. Je n'arrive pas à tourner la page.
+
+J'ai compris récemment que lorsque je me sentais seule, ce n'était pas réellement la présence des autres qui me manquait.
+
+C'était toi.
+
+Je passe facilement à autre chose avec les gens. Mais toi, ton absence a laissé un vide immense. J'ai parfois l'impression de chercher une autre version de toi chez les autres, tout en sachant que je ne la retrouverai jamais.
+
+Je déteste t'aimer autant alors que rien de tout ça n'est destiné à fonctionner.
+
+Et parfois je me demande comment toi, tu as réussi à avancer.
+
+Cette histoire a changé ma manière de voir l'amour. Elle m'a rendue méfiante. Elle m'a fait peur.
+
+Une partie de moi t'appartenait, et j'aurais aimé que ce soit réciproque.
+
+Je t'aimais tellement et je te faisais tellement confiance que dire « je t'aime » à quelqu'un d'autre ou recevoir son affection me donnait l'impression de te trahir.
+
+Tu as toujours été ma priorité.
+
+Alors pourquoi n'ai-je jamais été la tienne ?
+
+Pourquoi ton absence me fait-elle autant souffrir alors que la mienne semble ne rien changer pour toi ?
+
+Pourquoi ne me manques-tu pas comme tu me manques ?
+
+Pourquoi ne m'aimes-tu plus ?
+
+Je ne sais pas si un jour tu comprendras vraiment ce que je ressens.
+
+Mais ce que je sais, c'est que ma meilleure amie me manque.
+
+Et le plus douloureux dans tout ça, c'est d'avoir conscience que moi, je ne lui manque probablement plus.</div>
+                <button class="btn-yes" onclick="saveThoughts()">💾 Sauvegarder</button>
+                <p id="thoughts-save-message" class="journal-save-message"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         const reminders = ['لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا', 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا', 'وَبَشِّرِ الصَّابِرِينَ', 'وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا', 'وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', 'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ', 'إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۝ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا','أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', 'وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ', 'فَصْبِرْ صَبْرًا جَمِيلًا','مَا يُصِيبُ الْمُسْلِمَ مِنْ نَصَبٍ وَلَا وَصَبٍ وَلَا هَمٍّ وَلَا حُزْنٍ وَلَا أَذًى وَلَا غَمٍّ إِلَّا كَفَّرَ اللَّهُ بِهَا مِنْ خَطَايَاهُ','إِنَّ عِظَمَ الْجَزَاءِ مَعَ عِظَمِ الْبَلَاءِ ۝ وَإِنَّ اللَّهَ إِذَا أَحَبَّ قَوْمًا ابْتَلَاهُمْ ۝ فَمَن يَرْتَضِ بِالْبَلَاءِ رِضْوَانَ اللَّهِ فَقَدْ أَرْضَى اللَّهَ بِهِ','وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْأَمْوَالِ وَالْأَنْفُسِ وَالثَّمَرَاتِ ۝ وَبَشِّرِ الصَّابِرِينَ'];
         let reminderIndex = 0;
@@ -687,6 +790,13 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
                 journalTextarea.value = savedJournal;
             }
 
+            // Charger le journal secret persistant
+            const savedThoughts = localStorage.getItem('myThoughts');
+            const thoughtsTextarea = document.getElementById('thoughts-textarea');
+            if (thoughtsTextarea && savedThoughts) {
+                thoughtsTextarea.innerText = savedThoughts;
+            }
+
             // Ajouter les événements click sur les photos
             const photos = document.querySelectorAll('.photo-item img');
             photos.forEach(photo => {
@@ -756,6 +866,43 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
             }
         });
 
+        function checkThoughtsCode() {
+            const input = document.getElementById('thoughts-password-input').value;
+            const message = document.getElementById('thoughts-password-message');
+            const correctPassword = 'dearImene';
+
+            if (input === correctPassword) {
+                message.textContent = '✅ Code validé ! Ton espace intime est ouvert. 💌';
+                message.className = 'thoughts-password-message success';
+                document.getElementById('thoughts-password-section').style.display = 'none';
+                document.getElementById('thoughts-content-section').style.display = 'flex';
+
+                const saved = localStorage.getItem('myThoughts');
+                const textarea = document.getElementById('thoughts-textarea');
+                if (textarea) {
+                    textarea.innerText = saved ? saved : textarea.innerText || 'love';
+                }
+            } else if (input === '') {
+                message.textContent = '⚠️ Entre le code secret';
+                message.className = 'thoughts-password-message error';
+            } else {
+                message.textContent = '❌ Code incorrect, réessaie.';
+                message.className = 'thoughts-password-message error';
+                document.getElementById('thoughts-password-input').value = '';
+            }
+        }
+
+        function saveThoughts() {
+            const thoughtsContent = document.getElementById('thoughts-textarea').innerText;
+            localStorage.setItem('myThoughts', thoughtsContent);
+            const message = document.getElementById('thoughts-save-message');
+            message.textContent = '✅ Tes pensées ont été sauvegardées. 💖';
+            message.className = 'journal-save-message success';
+            setTimeout(() => {
+                message.textContent = '';
+            }, 3000);
+        }
+
         function checkGaleriePassword() {
             const input = document.getElementById('galerie-password-input').value;
             const message = document.getElementById('galerie-message');
@@ -815,6 +962,29 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
             }, 3000);
         }
 
+        function autoSaveJournal() {
+            const journalContent = document.getElementById('journal-textarea').value;
+            localStorage.setItem('myJournal', journalContent);
+        }
+
+        function copyJournal() {
+            const journalContent = document.getElementById('journal-textarea').value;
+            if (!navigator.clipboard) {
+                alert('Copie non supportée dans ce navigateur.');
+                return;
+            }
+            navigator.clipboard.writeText(journalContent).then(() => {
+                const message = document.getElementById('journal-save-message');
+                message.textContent = '✅ Journal copié dans le presse-papier.';
+                message.className = 'journal-save-message success';
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 3000);
+            }).catch(() => {
+                alert('Impossible de copier.');
+            });
+        }
+
         function switchView(viewId) {
             // Cacher toutes les vues
             const views = document.querySelectorAll('.view');
@@ -829,6 +999,27 @@ Et surtout, j’espère qu’en le regardant, tu verras au moins une partie de l
                 document.getElementById('galerie-message').textContent = '';
                 document.getElementById('galerie-password-section').style.display = 'block';
                 document.getElementById('galerie-content-section').style.display = 'none';
+            }
+
+            // Réinitialiser la page My Thoughts
+            if (viewId === 'thoughts-view') {
+                const thoughtsInput = document.getElementById('thoughts-password-input');
+                const thoughtsMessage = document.getElementById('thoughts-password-message');
+                const thoughtsSection = document.getElementById('thoughts-password-section');
+                const thoughtsContent = document.getElementById('thoughts-content-section');
+                if (thoughtsInput) {
+                    thoughtsInput.value = '';
+                }
+                if (thoughtsMessage) {
+                    thoughtsMessage.textContent = '';
+                    thoughtsMessage.className = 'thoughts-password-message';
+                }
+                if (thoughtsSection) {
+                    thoughtsSection.style.display = 'block';
+                }
+                if (thoughtsContent) {
+                    thoughtsContent.style.display = 'none';
+                }
             }
         }
     </script>
